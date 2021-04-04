@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:covid19/pages/Top_view.dart';
+import 'package:covid19/pages/TopView.dart';
 
 class Countrydata extends StatefulWidget {
-  var value;
-  var info;
-  List countries;
-  Map map;
+  final value;
+  final info;
+  final List countries;
+  final Map map;
   Countrydata({@required this.value, this.info, this.countries, this.map});
 
   @override
@@ -21,7 +21,7 @@ class _CountrydataState extends State<Countrydata> {
       children: <Widget>[
       Container(
       height: 160,
-      child: Top_bar(info: widget.info),
+      child: TopBar(info: widget.info),
       ),
         Expanded(
           child: ListView(

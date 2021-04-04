@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Top_bar extends StatefulWidget {
-  var info;
-  Top_bar({@required this.info});
+class TopBar extends StatefulWidget {
+  final info;
+  TopBar({@required this.info});
 
   @override
-  _Top_barState createState() => _Top_barState();
+  _TopBarState createState() => _TopBarState();
 }
 
-class _Top_barState extends State<Top_bar> {
+class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return Container(

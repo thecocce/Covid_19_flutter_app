@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:covid19/pages/Listshow.dart';
 import 'package:covid19/pages/Country.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:covid19/Dataloader.dart';
-
+import 'package:covid19/Dataloader.dart' as R;
 
 class Worldwide extends StatefulWidget {
-  var value;
-  var info;
-  List countries;
-  Map map;
+  final value;
+  final info;
+  final List countries;
+  final Map map;
   Worldwide({@required this.value, this.info, this.countries, this.map});
 
   @override
@@ -17,13 +16,13 @@ class Worldwide extends StatefulWidget {
 }
 
 class _WorldwideState extends State<Worldwide> {
-  Router r = new Router();
+  R.Router r = new R.Router();
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
     var _pages = [
-      Listshow(value: widget.value, info: widget.info,),
+      ListShow(value: widget.value, info: widget.info,),
       Countrydata(value: widget.value, info: widget.info, countries: widget.countries, map: widget.map,),
     ];
     return Scaffold(
@@ -36,7 +35,7 @@ class _WorldwideState extends State<Worldwide> {
           height: 52,
         ),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Icon(
               Icons.refresh,
               color: Colors.white,
@@ -58,11 +57,11 @@ class _WorldwideState extends State<Worldwide> {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(FontAwesomeIcons.globe, color: Colors.white,),
-                title: Text("World Report", style: TextStyle(color: Colors.white),)
+                label: "World Report", // title: Text("World Report", style: TextStyle(color: Colors.white),)
               ),
               BottomNavigationBarItem(
                 icon: Icon(FontAwesomeIcons.solidMap, color: Colors.white,),
-                title: Text("Country Report", style: TextStyle(color: Colors.white),)
+                label: "Country Report", //title: Text("Country Report", style: TextStyle(color: Colors.white),)
               ),
             ]
           )

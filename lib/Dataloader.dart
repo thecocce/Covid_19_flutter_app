@@ -12,7 +12,7 @@ class Router {
 
   String url = "https://corona.lmao.ninja/v2/countries?sort=deaths";
   Future<List<Country>> fetchdata() async {
-    http.Response response = await http.get(url);
+    http.Response response = await http.get(Uri.parse(url));
     //String b = response.body.replaceAll('Iran, Islamic Republic of', 'Iran');
     List responseJson = jsonDecode(response.body);
     return responseJson.map((m) => new Country.fromJson(m)).toList();

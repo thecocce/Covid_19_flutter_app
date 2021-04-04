@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:covid19/pages/Top_view.dart';
+import 'package:covid19/pages/TopView.dart';
 
-class Listshow extends StatefulWidget {
-  var value;
-  var info;
-  Listshow({@required this.value, this.info});
+class ListShow extends StatefulWidget {
+  final value;
+  final info;
+  ListShow({@required this.value, this.info});
 
   @override
-  _ListshowState createState() => _ListshowState();
+  _ListShowState createState() => _ListShowState();
 }
 
-class _ListshowState extends State<Listshow> {
+class _ListShowState extends State<ListShow> {
   @override
   Widget build(BuildContext context) {
     return Column(
     children: <Widget>[
       Container(
         height: 160,
-        child: Top_bar(info: widget.info),
+        child: TopBar(info: widget.info),
       ),
 
       Expanded(

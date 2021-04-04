@@ -20,13 +20,13 @@ class _SplashscreenState extends State<Splashscreen> {
   String url1 = "https://corona.lmao.ninja/countries?sort=deaths";
   String url = "https://corona.lmao.ninja/v2/countries?sort=deaths";
   Future<List<Country>> fetchdata() async {
-    http.Response response = await http.get(url);
+    http.Response response = await http.get(Uri.parse(url));
     //String b = response.body.replaceAll('Iran, Islamic Republic of', 'Iran');
     List responseJson = jsonDecode(response.body);
     return responseJson.map((m) => new Country.fromJson(m)).toList();
   }
 
-  Future<http.Response> fetchall(link) async {
+  Future<http.Response> fetchall(Uri link) async {
     http.Response r =  await http.get(link);
     return r;
   }
@@ -41,7 +41,7 @@ class _SplashscreenState extends State<Splashscreen> {
         _countries.add(value[i].name.toString());
         _map[value[i].name.toString()] = value[i];
       }
-      fetchall('https://corona.lmao.ninja/v2/all').then((res){
+      fetchall(Uri.parse('https://corona.lmao.ninja/v2/all')).then((res){
         _info = jsonDecode(res.body.toString());
         Navigator.pushReplacement(context,MaterialPageRoute(
             builder: (context) => Worldwide(value: value, info: _info, countries: _countries,map: _map,)));
